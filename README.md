@@ -1,7 +1,7 @@
 # htb-writeups 🧠
 
 Colección de writeups técnicos de máquinas **Hack The Box**, documentados en español
-mientras avanzo en mi camino hacia el eJPT y más allá.
+mientras avanzo en mi camino hacia el eJPT, CompTIA PenTest+, OSCP, CEH, eCPPTv2 y más allá.
 
 Cada writeup sigue una metodología consistente y reproducible: nada de capturas
 sueltas ni pasos mágicos — solo razonamiento real, comandos explicados y lecciones
@@ -41,22 +41,8 @@ Todos los writeups siguen la misma estructura:
 ## Stack y entorno
 
 - Kali Linux (WSL2 sobre Windows)
-- Herramientas: `nmap`, `gobuster`, `sqlmap`, `hydra`, `curl`, Metasploit y lo que
-  haga falta
-- VPN: OpenVPN corriendo dentro de WSL para obtener `tun0`
-
----
-
-## Estado actual
-
-| Máquina      | Categoría       | Dificultad | Writeup |
-|--------------|-----------------|------------|---------|
-| Appointment  | Starting Point  | Muy fácil  | ✅      |
-| Cap          | Starting Point  | Fácil      | ✅      |
-| Sequel       | Starting Point  | Muy fácil  | ✅      |
-| Crocodile    | Starting Point  | Muy fácil  | ✅      |
-
-Actualización continua conforme completo nuevas máquinas.
+- Herramientas: `nmap`, `ftp`, `telnet`, `curl`, `gobuster`, `sqlmap`, `mysql`, `john`, `hydra`, `netcat`, Metasploit (`msfconsole`)- VPN:
+- OpenVPN corriendo dentro de WSL para obtener `tun0`
 
 ---
 
