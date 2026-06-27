@@ -1,10 +1,9 @@
 # Crocodile — Hack The Box
 
-
-**Plataforma:** Hack The Box — Starting Point
-**Dificultad:** Very Easy
-**SO:** Linux
-**Categoría:** FTP / Web / Credential Stuffing
+**Plataforma:** Hack The Box — Starting Point  
+**Dificultad:** Very Easy  
+**SO:** Linux  
+**Categoría:** FTP / Web / Credential Stuffing  
 **Estado:** ✅ Pwned
 
 ---
@@ -19,7 +18,7 @@ en texto plano y fuzzing de directorios web para descubrir un panel de login ocu
 ## Reconocimiento
 
 ```bash
-nmap -sC -sV 
+nmap -sC -sV (IP)
 ```
 
 Resultado relevante:
@@ -38,7 +37,7 @@ Dos servicios activos: FTP en el 21 y web en el 80.
 ### FTP — Acceso anónimo
 
 ```bash
-ftp <IP>
+ftp (IP)
 ```
 
 Usuario: `anonymous` · Contraseña: (vacía)
@@ -64,7 +63,7 @@ El contenido revela una lista de usuarios y contraseñas en texto plano.
 ### Fuzzing de directorios web
 
 ```bash
-gobuster dir -u http://<IP> -w <ruta-wordlist>/directory-list-2.3-small.txt -x php,html
+gobuster dir -u http://(IP) -w (ruta-wordlist)/directory-list-2.3-small.txt -x php,html
 ```
 
 Se descubre `/login.php`, no visible desde la raíz del sitio.
@@ -81,7 +80,7 @@ directamente sobre el panel de login.
 
 ### Acceso al panel
 
-En `http://<IP>/login.php` se prueban las combinaciones obtenidas. El usuario
+En `http://(IP)/login.php` se prueban las combinaciones obtenidas. El usuario
 `admin` con su contraseña correspondiente concede acceso.
 
 ---
@@ -118,7 +117,5 @@ c7110277ac44d78b6axxxxxxxxxxxx
 ---
 
 *Parte del camino hacia la certificación eJPT — documentando el progreso desde cero.*
-
----
 
 *Máquina repetida para documentar correctamente el proceso.*
