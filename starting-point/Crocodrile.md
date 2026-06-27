@@ -2,7 +2,7 @@
 
 ## Resumen
 
-Máquina Linux de nivel muy fácil que combina enumeración FTP con acceso anónimo,
+Máquina de dificultad **Very Easy** que combina enumeración FTP con acceso anónimo,
 extracción de credenciales y fuzzing de directorios web para encontrar un panel de
 login oculto.
 
@@ -13,7 +13,7 @@ login oculto.
 ## Reconocimiento
 
 ```bash
-nmap -sC -sV 10.129.1.15
+nmap -sC -sV 
 ```
 
 Puertos relevantes:
@@ -28,7 +28,7 @@ Puertos relevantes:
 ### 1. Acceso FTP anónimo
 
 ```bash
-ftp 10.129.1.15
+ftp 
 ```
 
 Usuario: `anonymous` · Contraseña: (vacía)
@@ -37,10 +37,10 @@ Usuario: `anonymous` · Contraseña: (vacía)
 ls
 ```
 
-Resultado:
-allowed.userlist
+Archivos encontrados:
 
-allowed.userlist.passwd
+- `allowed.userlist`
+- `allowed.userlist.passwd`
 
 ### 2. Descarga de archivos
 
@@ -49,36 +49,33 @@ get allowed.userlist
 get allowed.userlist.passwd
 ```
 
-Revisando el contenido, se obtiene una lista de usuarios y sus contraseñas en texto
-plano.
+Revisando el contenido, se obtiene una lista de usuarios y sus contraseñas en texto plano.
 
 ### 3. Fuzzing de directorios web
 
 ```bash
-gobuster dir -u http://10.129.1.15 -w /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt -x php,html
+gobuster dir -u http:// -w /directory-list-2.3-small.txt -x php,html
 ```
 
 Se descubre `/login.php`.
 
 ### 4. Acceso al panel
 
-Probando las credenciales extraídas del FTP en `http://10.129.1.15/login.php`,
+Probando las credenciales extraídas del FTP en `http://<IP>/login.php`,
 se obtiene acceso con el usuario `admin`.
 
 ---
 
 ## Flag
-c7110277ac44d78xxxxxxxxxxxxxxxxx
+c7110277ac44d78b6axxxxxxxxxxxx
 
 ---
 
 ## Conclusiones
 
 - El acceso anónimo a FTP es un vector clásico y frecuente en entornos mal configurados.
-- Nunca asumir que un servidor web solo tiene la raíz — el fuzzing de directorios es
-  obligatorio en cualquier enumeración web.
-- Las credenciales en texto plano dentro de un servicio expuesto son game over
-  inmediato.
+- Nunca asumir que un servidor web solo tiene la raíz — el fuzzing de directorios es obligatorio en cualquier enumeración web.
+- Las credenciales en texto plano dentro de un servicio expuesto son game over inmediato.
 
 ---
 
