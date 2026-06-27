@@ -59,7 +59,7 @@ ftp
 En los paquetes `USER` y `PASS` se encuentran credenciales en texto claro:
 Usuario: nathan
 
-Contraseña: Buck3txxxxxxxxx
+Contraseña: Buck3tH4TF0RM3!
 
 FTP transmite las credenciales sin cifrar, lo que permite interceptarlas con una
 simple captura de red.
@@ -71,9 +71,10 @@ simple captura de red.
 Las credenciales de FTP se reutilizan para SSH:
 
 ```bash
-ssh nathan@(IP-victima)```
+ssh nathan@(IP-víctima)
+```
 
-Contraseña: `Buck3txxxxxxxxx`
+Contraseña: `Buck3tH4TF0RM3!`
 
 Acceso conseguido como usuario `nathan`.
 
