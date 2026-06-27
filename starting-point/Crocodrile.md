@@ -13,7 +13,7 @@ login oculto.
 ## Reconocimiento
 
 ```bash
-nmap -sC -sV 
+nmap -sC -sV (IP)
 ```
 
 Puertos relevantes:
@@ -28,7 +28,7 @@ Puertos relevantes:
 ### 1. Acceso FTP anónimo
 
 ```bash
-ftp 
+ftp <IP>
 ```
 
 Usuario: `anonymous` · Contraseña: (vacía)
@@ -54,7 +54,7 @@ Revisando el contenido, se obtiene una lista de usuarios y sus contraseñas en t
 ### 3. Fuzzing de directorios web
 
 ```bash
-gobuster dir -u http:// -w /directory-list-2.3-small.txt -x php,html
+gobuster dir -u http://<IP> -w xxx/xxx/xxx/directory-list-2.3-small.txt -x php,html
 ```
 
 Se descubre `/login.php`.
