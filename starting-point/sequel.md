@@ -129,22 +129,6 @@ El flag aparece en texto plano dentro de la tabla `config` de la base de datos `
 
 ---
 
-## Mitigación
-
-```sql
--- Asignar contraseña robusta al usuario root
-ALTER USER 'root'@'%' IDENTIFIED BY 'contraseña_segura';
-
--- Restringir acceso solo a localhost
-DELETE FROM mysql.user WHERE User='root' AND Host='%';
-FLUSH PRIVILEGES;
-```
-
-Además, el puerto 3306 no debería ser accesible desde el exterior. Configurar el
-firewall para bloquearlo salvo conexiones internas autorizadas.
-
----
-
 ## Herramientas utilizadas
 
 | Herramienta | Uso |
