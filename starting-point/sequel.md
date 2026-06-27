@@ -104,7 +104,7 @@ SELECT * FROM config;
 
 +----+------+----------------------------------+
 
-|  1 | flag | 7b4bec00d1a39xxxxxxxxxxxx |
+|  1 | flag | 7b4bec00d1a39e3dd4e021ec3d915da8 |
 
 +----+------+----------------------------------+
 
@@ -126,6 +126,22 @@ El flag aparece en texto plano dentro de la tabla `config` de la base de datos `
 - **MySQL expuesto sin autenticación:** el puerto 3306 accesible externamente ya es una señal de alarma crítica, con root sin contraseña es game over inmediato.
 - **Flujo de enumeración SQL:** `SHOW databases` → `USE <db>` → `SHOW tables` → `SELECT * FROM <table>` es el recorrido estándar para mapear una base de datos desconocida.
 - **Privilegios mínimos:** el acceso como root a una base de datos nunca debería estar expuesto a red, independientemente de si tiene contraseña o no.
+
+---
+
+## Mitigación
+
+```sql
+-- Asignar contraseña robusta al usuario root
+ALTER USER 'root'@'%' IDENTIFIED BY 'contraseña_segura';
+
+-- Restringir acceso solo a localhost
+DELETE FROM mysql.user WHERE User='root' AND Host='%';
+FLUSH PRIVILEGES;
+```
+
+Además, el puerto 3306 no debería ser accesible desde el exterior. Configurar el
+firewall para bloquearlo salvo conexiones internas autorizadas.
 
 ---
 
