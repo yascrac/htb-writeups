@@ -1,4 +1,4 @@
-# Sequel
+# Sequel — Hack The Box
 
 **Platform:** Hack The Box — Starting Point Tier 1  
 **Difficulty:** Very Easy  
