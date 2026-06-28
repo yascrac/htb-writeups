@@ -133,7 +133,7 @@ Sesión remota establecida como `Administrator` en la máquina objetivo.
 ## Flag
 
 ```
-ea81b7afddd03efaa0945333ed147fac
+ea81b7afddd03efaaxxxxxxxxxxxxxxx
 ```
 
 Obtenida en:
